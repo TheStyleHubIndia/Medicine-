@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-dev-runtime-C0A2Pi2Y.js";var t=e(),n=`/app/applet/src/routes/manufacturers.$id.tsx?tsr-split=errorComponent`,r=({error:e})=>(0,t.jsxDEV)(`p`,{role:`alert`,className:`p-6 text-sm text-destructive`,children:e.message},void 0,!1,{fileName:n,lineNumber:3,columnNumber:7},void 0);export{r as errorComponent};
