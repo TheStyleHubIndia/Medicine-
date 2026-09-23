@@ -17,6 +17,7 @@ import { PronounceButtons } from "@/components/pronounce";
 import { Disclaimer } from "@/components/disclaimer";
 import { MedicalTermHelp } from "@/components/medical-term-help";
 import { VerificationBadge } from "@/components/verification-badge";
+import { MedicineMemoryMode } from "@/components/medicine-memory-mode";
 import {
   medicineQuery,
   medicineBrandsQuery,
@@ -169,6 +170,8 @@ function MedicineDetail() {
           </Button>
         </div>
       </header>
+
+      <MedicineMemoryMode medicine={m} classes={classes ?? undefined} />
 
       <p className="text-sm leading-relaxed text-muted-foreground">{m.description}</p>
 
@@ -374,7 +377,7 @@ function Section({
       <AccordionTrigger className="text-left font-display font-semibold">
         <span className="flex items-center gap-1.5">
           {title}
-          {term ? <MedicalTermHelp term={term} /> : null}
+          {term ? <MedicalTermHelp term={term} asSpan /> : null}
         </span>
       </AccordionTrigger>
       <AccordionContent className="pb-4">{children}</AccordionContent>

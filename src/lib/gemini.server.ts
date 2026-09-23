@@ -11,6 +11,7 @@ function getGeminiClient(): GoogleGenAI {
   if (!apiKey) {
     throw new Error("GEMINI_API_KEY is not configured in the server environment.");
   }
+
   if (!geminiClient) {
     geminiClient = new GoogleGenAI({
       apiKey,
@@ -21,6 +22,7 @@ function getGeminiClient(): GoogleGenAI {
       },
     });
   }
+
   return geminiClient;
 }
 
@@ -50,17 +52,17 @@ export async function generateGeminiContent(
     return {
       ok: false,
       errorMessage:
-        "Gemini API key is not configured on the server. Please ensure GEMINI_API_KEY is set.",
+        "Gemini API key is not configured on the server. Please ensure GEMINI_API_KEY is set in Settings > Secrets.",
     };
   }
 
+  // Model hierarchy following AI Studio guidance
   const modelsToTry = [
-    options.model ?? "gemini-3.1-flash-lite",
-    "gemini-3.8-flash",
+    options.model ?? "gemini-3.8-flash",
     "gemini-flash-latest",
   ];
-  const client = getGeminiClient();
 
+  const client = getGeminiClient();
   let lastError: unknown = null;
 
   for (const model of modelsToTry) {
@@ -93,6 +95,7 @@ export async function generateGeminiContent(
 
   console.error("[Gemini Service Error]", lastError);
   const errorStr = String(lastError);
+
   if (
     errorStr.includes("429") ||
     errorStr.toLowerCase().includes("quota") ||

@@ -296,6 +296,16 @@ var ChevronDown = createLucideIcon("chevron-down", [["path", {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var ChevronUp = createLucideIcon("chevron-up", [["path", {
+	d: "m18 15-6-6-6 6",
+	key: "153udz"
+}]]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var CircleCheck = createLucideIcon("circle-check", [["circle", {
 	cx: "12",
 	cy: "12",
@@ -305,6 +315,28 @@ var CircleCheck = createLucideIcon("circle-check", [["circle", {
 	d: "m9 12 2 2 4-4",
 	key: "dzmm74"
 }]]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var CircleQuestionMark = createLucideIcon("circle-question-mark", [
+	["circle", {
+		cx: "12",
+		cy: "12",
+		r: "10",
+		key: "1mglay"
+	}],
+	["path", {
+		d: "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3",
+		key: "1u773s"
+	}],
+	["path", {
+		d: "M12 17h.01",
+		key: "p32p05"
+	}]
+]);
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -472,6 +504,16 @@ var Factory = createLucideIcon("factory", [
 		key: "18s6g9"
 	}]
 ]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var Flame = createLucideIcon("flame", [["path", {
+	d: "M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4",
+	key: "1slcih"
+}]]);
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -1183,4 +1225,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { ArrowDown as $, Languages as A, Clock as B, Menu as C, LoaderCircle as D, LogIn as E, FlaskConical as F, Check as G, Circle as H, Factory as I, Brain as J, ChartColumn as K, Eye as L, Info as M, House as N, Lightbulb as O, GraduationCap as P, ArrowLeft as Q, EyeOff as R, Moon as S, LogOut as T, CircleCheck as U, ClipboardCheck as V, ChevronDown as W, Bell as X, BookOpen as Y, ArrowRight as Z, RotateCcw as _, Turtle as a, Pill as b, Sun as c, Sparkles as d, ShieldCheck as f, Scale as g, Search as h, Upload as i, KeyRound as j, Layers as k, Stethoscope as l, Settings as m, Volume2 as n, TriangleAlert as o, ShieldAlert as p, CalendarCheck as q, User as r, Trash2 as s, X as t, Star as u, Rabbit as v, Mail as w, Palette as x, Plus as y, Dna as z };
+export { Bell as $, Languages as A, Dna as B, Menu as C, LoaderCircle as D, LogIn as E, FlaskConical as F, CircleCheck as G, ClipboardCheck as H, Flame as I, Check as J, ChevronUp as K, Factory as L, Info as M, House as N, Lightbulb as O, GraduationCap as P, BookOpen as Q, Eye as R, Moon as S, LogOut as T, Circle as U, Clock as V, CircleQuestionMark as W, CalendarCheck as X, ChartColumn as Y, Brain as Z, RotateCcw as _, Turtle as a, Pill as b, Sun as c, Sparkles as d, ArrowRight as et, ShieldCheck as f, Scale as g, Search as h, Upload as i, KeyRound as j, Layers as k, Stethoscope as l, Settings as m, Volume2 as n, ArrowDown as nt, TriangleAlert as o, ShieldAlert as p, ChevronDown as q, User as r, Trash2 as s, X as t, ArrowLeft as tt, Star as u, Rabbit as v, Mail as w, Palette as x, Plus as y, EyeOff as z };

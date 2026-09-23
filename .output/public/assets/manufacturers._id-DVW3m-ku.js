@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-dev-runtime-C0A2Pi2Y.js";var t=e(),n=`/app/applet/src/routes/manufacturers.$id.tsx?tsr-split=notFoundComponent`,r=()=>(0,t.jsxDEV)(`p`,{className:`p-6 text-sm`,children:`Company not found.`},void 0,!1,{fileName:n,lineNumber:1,columnNumber:38},void 0);export{r as notFoundComponent};

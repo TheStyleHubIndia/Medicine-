@@ -12,29 +12,50 @@ export function MedicalTermHelp({
   term,
   label,
   className,
+  asSpan = false,
 }: {
   term: string;
-  label?: string;
-  className?: string;
+  label?: string | undefined;
+  className?: string | undefined;
+  asSpan?: boolean | undefined;
 }) {
   const entry = lookupTerm(term);
   if (!entry) return null;
   const shown = label ?? entry.term;
 
+  const triggerClasses = cn(
+    "inline-grid size-5 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer",
+    className,
+  );
+
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button
-          type="button"
-          aria-label={`What is ${shown}?`}
-          onClick={(e) => e.stopPropagation()}
-          className={cn(
-            "inline-grid size-5 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground",
-            className,
-          )}
-        >
-          <Info className="size-3.5" aria-hidden />
-        </button>
+        {asSpan ? (
+          <span
+            role="button"
+            tabIndex={0}
+            aria-label={`What is ${shown}?`}
+            onClick={(e) => e.stopPropagation()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.stopPropagation();
+              }
+            }}
+            className={triggerClasses}
+          >
+            <Info className="size-3.5" aria-hidden />
+          </span>
+        ) : (
+          <button
+            type="button"
+            aria-label={`What is ${shown}?`}
+            onClick={(e) => e.stopPropagation()}
+            className={triggerClasses}
+          >
+            <Info className="size-3.5" aria-hidden />
+          </button>
+        )}
       </PopoverTrigger>
       <PopoverContent align="start" className="max-h-80 w-80 space-y-2 overflow-y-auto text-sm">
         <div>
@@ -76,15 +97,17 @@ export function TermLabel({
   term,
   label,
   className,
+  asSpan,
 }: {
   term: string;
   label?: string | undefined;
   className?: string | undefined;
+  asSpan?: boolean | undefined;
 }) {
   return (
     <span className={cn("inline-flex items-center gap-1.5", className)}>
       {label ?? term}
-      <MedicalTermHelp term={term} {...(label ? { label } : {})} />
+      <MedicalTermHelp term={term} asSpan={asSpan} {...(label ? { label } : {})} />
     </span>
   );
 }
