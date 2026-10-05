@@ -30,6 +30,7 @@ import {
   extractDifficultTermsForMedicine,
   type HinglishTermDefinition,
 } from "@/lib/hinglish-terms";
+import { classifyMedicineDosageForms } from "@/lib/problem-search-engine";
 
 interface Props {
   medicine: MedicineRecord;
@@ -160,6 +161,44 @@ export function MedicineMemoryMode({ medicine, classes }: Props) {
                 <strong className="text-foreground">Pronunciation:</strong>{" "}
                 <span className="italic text-primary">{medicine.pronunciation_en}</span>
                 {medicine.pronunciation_hi ? ` (${medicine.pronunciation_hi})` : ""}
+              </span>
+            )}
+          </div>
+
+          {/* Form & Route Visual Identification */}
+          <div className="mt-2 flex flex-wrap items-center gap-1.5 pt-1">
+            <span className="text-xs font-semibold text-foreground">Form:</span>
+            {medicine.dosage_forms && medicine.dosage_forms.length > 0 ? (
+              medicine.dosage_forms.map((f) => (
+                <Badge
+                  key={f}
+                  variant={
+                    /cream|gel|ointment|lotion|shampoo|topical|foam|lacquer/i.test(f)
+                      ? "default"
+                      : "secondary"
+                  }
+                  className="text-xs font-medium"
+                >
+                  {/cream|gel|ointment|lotion|shampoo|topical|foam|lacquer/i.test(f)
+                    ? "🧴 "
+                    : /inhal|respule|spray/i.test(f)
+                    ? "🌬️ "
+                    : /inject|infusion/i.test(f)
+                    ? "💉 "
+                    : /drops|eye|ear/i.test(f)
+                    ? "👁️ "
+                    : "💊 "}
+                  {f}
+                </Badge>
+              ))
+            ) : (
+              <span className="text-xs text-muted-foreground italic">
+                Current database mein verified information available nahi hai.
+              </span>
+            )}
+            {medicine.routes && medicine.routes.length > 0 && (
+              <span className="text-xs text-muted-foreground ml-1">
+                (Routes: {medicine.routes.join(", ")})
               </span>
             )}
           </div>

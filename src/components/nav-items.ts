@@ -17,6 +17,7 @@ import {
   Info,
   ShieldCheck,
   Factory,
+  Stethoscope,
   type LucideIcon,
 } from "lucide-react";
 
@@ -25,6 +26,7 @@ export type NavItem = { to: string; label: string; icon: LucideIcon };
 export const MAIN_NAV: NavItem[] = [
   { to: "/", label: "Home", icon: Home },
   { to: "/medicines", label: "Medicines", icon: Pill },
+  { to: "/conditions", label: "Problem Search", icon: Stethoscope },
   { to: "/classes", label: "Classes", icon: Dna },
   { to: "/manufacturers", label: "Pharma Companies", icon: Factory },
   { to: "/terms", label: "Medical Terms", icon: BookOpen },

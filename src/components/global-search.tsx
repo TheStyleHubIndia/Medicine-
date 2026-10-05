@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { searchQuery } from "@/lib/queries";
 
 const RECENT_KEY = "medivault.recent-searches";
-const POPULAR = ["Paracetamol", "Crocin", "Losartan", "Metformin", "Analgesic", "PPI"];
+const POPULAR = ["Paracetamol", "Acne", "High BP", "Hair fall", "Acidity", "Metformin", "Fever", "Cough"];
 
 function useDebounced<T>(value: T, delay = 250) {
   const [v, setV] = useState(value);
@@ -104,8 +104,11 @@ export function GlobalSearch({
                     onClick={() => go(r.href, r.title)}
                     className="flex w-full items-start gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-accent"
                   >
-                    <Badge variant="outline" className="mt-0.5 shrink-0 capitalize">
-                      {r.kind}
+                    <Badge
+                      variant={r.kind === "condition" ? "default" : "outline"}
+                      className="mt-0.5 shrink-0 capitalize"
+                    >
+                      {r.kind === "condition" ? "Condition" : r.kind}
                     </Badge>
                     <span className="min-w-0">
                       <span className="block truncate font-medium">{r.title}</span>

@@ -1,6 +1,7 @@
 import { queryOptions } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
+import { searchConditions } from "@/lib/problem-search-engine";
 
 export type Medicine = Tables<"medicines">;
 export type DrugClass = Tables<"drug_classes">;
@@ -11,7 +12,7 @@ export type QuizQuestion = Tables<"quiz_questions">;
 export type SuffixPattern = Tables<"suffix_patterns">;
 
 const LIST_COLUMNS =
-  "id, slug, generic_name, display_name, salt, active_ingredient, category, description, pronunciation_en, key_suffix, verification_status";
+  "id, slug, generic_name, display_name, salt, active_ingredient, category, description, pronunciation_en, key_suffix, verification_status, indications, dosage_forms, routes";
 
 export type MedicineListItem = Pick<
   Medicine,
@@ -26,6 +27,9 @@ export type MedicineListItem = Pick<
   | "pronunciation_en"
   | "key_suffix"
   | "verification_status"
+  | "indications"
+  | "dosage_forms"
+  | "routes"
 >;
 
 export const medicinesQuery = (category?: string) =>
@@ -211,7 +215,7 @@ export const quizQuery = (topic?: string) =>
   });
 
 export type SearchResult = {
-  kind: "medicine" | "brand" | "class" | "term" | "manufacturer";
+  kind: "medicine" | "brand" | "class" | "term" | "manufacturer" | "condition";
   title: string;
   subtitle: string;
   href: string;
@@ -377,6 +381,18 @@ export const searchQuery = (term: string) =>
           href: `/terms?q=${encodeURIComponent(t2.term)}`,
           rank: Math.max(rankFor(t2.term, needle, 6), 6),
         });
+
+      // Match verified problem / conditions
+      const conditionMatches = searchConditions(t);
+      for (const cond of conditionMatches.slice(0, 5)) {
+        results.push({
+          kind: "condition",
+          title: cond.name,
+          subtitle: `Problem / Condition • ${cond.medicalTerm}`,
+          href: `/conditions?c=${cond.id}`,
+          rank: 2, // High priority matching for health problems & symptoms
+        });
+      }
 
       return results.sort((a, b) => (a.rank ?? 8) - (b.rank ?? 8)).slice(0, 30);
     },

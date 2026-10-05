@@ -14,6 +14,7 @@ import {
   Clock,
   Star,
   CalendarCheck,
+  Stethoscope,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -47,13 +48,13 @@ export const Route = createFileRoute("/")({
 
 const QUICK = [
   { to: "/medicines", label: "Medicines", icon: Pill },
+  { to: "/conditions", label: "Problem Search", icon: Stethoscope },
   { to: "/classes", label: "Drug Classes", icon: Dna },
   { to: "/terms", label: "Dictionary", icon: BookOpen },
   { to: "/memory", label: "Drug Memory", icon: Brain },
   { to: "/flashcards", label: "Flashcards", icon: Layers },
   { to: "/quiz", label: "Quiz", icon: ClipboardCheck },
   { to: "/pronunciation", label: "Pronunciation", icon: Volume2 },
-  { to: "/adme", label: "ADME", icon: FlaskConical },
 ] as const;
 
 function Home() {

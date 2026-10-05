@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
+import { Stethoscope, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -64,6 +65,26 @@ function MedicinesPage() {
         </p>
 
       </header>
+
+      <div className="surface p-4 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border border-primary/20 bg-primary/5">
+        <div className="flex items-center gap-3">
+          <span className="grid size-9 place-items-center rounded-lg bg-primary/10 text-primary shrink-0">
+            <Stethoscope className="size-5" />
+          </span>
+          <div>
+            <h2 className="font-semibold text-sm sm:text-base">🔎 Search by Problem / Condition</h2>
+            <p className="text-xs text-muted-foreground">
+              Dhoondho health problem, symptom ya disease ke hisaab se (e.g. Acne, Hair fall, Acidity, High BP, Fever).
+            </p>
+          </div>
+        </div>
+        <Button asChild size="sm" className="gap-1.5 shrink-0">
+          <Link to="/conditions">
+            <span>Open Problem Search</span>
+            <ArrowRight className="size-4" />
+          </Link>
+        </Button>
+      </div>
 
       <Input
         value={term}

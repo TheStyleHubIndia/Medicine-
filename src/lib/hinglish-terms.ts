@@ -416,6 +416,76 @@ export const HINGLISH_TERMS_DICTIONARY: Record<string, HinglishTermDefinition> =
     simpleHinglish: "Dawa ko baar-baar lene se body ka aadi hona, jisse wahi asar pane ke liye higher dose ki zaroorat padti hai.",
     category: "pharmacology",
   },
+  acne: {
+    term: "Acne",
+    simpleHinglish: "Acne = skin par pimples/daane hone wali common condition jisme hair follicles aur oil glands block ya inflamed hote hain.",
+    category: "condition",
+  },
+  alopecia: {
+    term: "Alopecia",
+    simpleHinglish: "Alopecia = hair loss ya baalon ka unusual girna.",
+    category: "condition",
+  },
+  dermatitis: {
+    term: "Dermatitis",
+    simpleHinglish: "Dermatitis = skin ki inflammation/irritation, sujan aur redness.",
+    category: "condition",
+  },
+  dandruff: {
+    term: "Dandruff",
+    simpleHinglish: "Dandruff = scalp ki dry ya oily flakes aur mild khujli hona.",
+    category: "condition",
+  },
+  psoriasis: {
+    term: "Psoriasis",
+    simpleHinglish: "Psoriasis = chronic autoimmune skin condition jisme skin cells tezi se multiply hokar silvery scales aur red patches banate hain.",
+    category: "condition",
+  },
+  eczema: {
+    term: "Eczema",
+    simpleHinglish: "Eczema = skin ki inflammatory condition jisme dry, red patches aur severe itching hoti hai.",
+    category: "condition",
+  },
+  tinea: {
+    term: "Tinea",
+    simpleHinglish: "Tinea = fungus ki wajah se skin, nails ya scalp par hone wala fungal infection (jaise daad ya ringworm).",
+    category: "condition",
+  },
+  urticaria: {
+    term: "Urticaria",
+    simpleHinglish: "Urticaria = skin par achanak nikalne wale raised, intensely itchy wheals ya hives.",
+    category: "condition",
+  },
+  cough: {
+    term: "Cough",
+    simpleHinglish: "Cough = airways ko secretions aur irritants se clear karne ka protective body reflex.",
+    category: "symptom",
+  },
+  wheezing: {
+    term: "Wheezing",
+    simpleHinglish: "Wheezing = saans lete waqt chhati se aane wali seeti jaisi high-pitched aawaz jo airway narrowing ka sign hai.",
+    category: "symptom",
+  },
+  fever: {
+    term: "Fever",
+    simpleHinglish: "Fever = body temperature ka badhna jo aksar infection ya inflammation ka response hota hai.",
+    category: "symptom",
+  },
+  fatigue: {
+    term: "Fatigue",
+    simpleHinglish: "Fatigue = excessive thakan aur energy ki kami feel hona jo aam aaraam se theek na ho.",
+    category: "symptom",
+  },
+  topical: {
+    term: "Topical",
+    simpleHinglish: "Topical = skin ya mucous membrane par directly lagayi jaane wali medicine (jaise cream, ointment, gel).",
+    category: "route",
+  },
+  autoimmune: {
+    term: "Autoimmune",
+    simpleHinglish: "Autoimmune = aisi condition jisme body ka apna immune system galti se healthy body tissues par attack karne lagta hai.",
+    category: "condition",
+  },
 };
 
 /**
