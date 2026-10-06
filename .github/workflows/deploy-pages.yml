@@ -32,10 +32,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Prepare static output
+      - name: Prepare GitHub Pages SPA output
         run: |
-          test -d .output/public
-          cp .output/public/index.html .output/public/404.html 2>/dev/null || true
+          set -eux
+          test -f .output/public/_shell.html
+          cp .output/public/_shell.html .output/public/index.html
+          cp .output/public/_shell.html .output/public/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
