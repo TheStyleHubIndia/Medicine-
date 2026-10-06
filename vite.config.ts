@@ -20,13 +20,25 @@ const silenceDirectivesPlugin = () => ({
   },
 });
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
+
 export default defineConfig({
   tanstackStart: {
+    spa: {
+      enabled: true,
+      prerender: {
+        outputPath: "/_shell.html",
+        crawlLinks: false,
+        retryCount: 2,
+        failOnError: true,
+      },
+    },
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
   },
   vite: {
+    base: isGitHubPages ? "/Medicine-/" : "/",
     envPrefix: ["VITE_", "NEXT_PUBLIC_"],
     plugins: [silenceDirectivesPlugin()],
     build: {
