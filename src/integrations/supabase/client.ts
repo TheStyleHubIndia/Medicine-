@@ -95,7 +95,7 @@ function createSupabaseClient() {
     console.warn(
       `[Supabase] Missing or invalid Supabase URL/Key. Using safe fallback client.`,
     );
-    return createClient<Database>("https://placeholder.supabase.co", "placeholder-key", {
+    return createClient<Database>("https://fgsmqccesuxxhitosztc.supabase.co", "sb_publishable_SWNfPQVmoVJWdeJfN6tN1w_TE6NF7eN", {
       global: {
         fetch: async () =>
           new Response(JSON.stringify([]), {
