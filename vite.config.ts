@@ -24,6 +24,9 @@ const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 
 export default defineConfig({
   tanstackStart: {
+    server: {
+      entry: "src/server.ts",
+    },
     spa: {
       enabled: true,
       prerender: {
