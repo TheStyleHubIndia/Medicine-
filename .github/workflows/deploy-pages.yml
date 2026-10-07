@@ -17,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VITE_SUPABASE_URL: "https://fgsmqccesuxxhitosztc.supabase.co"
+      VITE_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_SWNfPQVmoVJWdeJfN6tN1w_TE6NF7eN"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,6 +31,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+
+      - name: Verify Supabase build environment
+        run: |
+          set -eu
+          test -n "$VITE_SUPABASE_URL"
+          test -n "$VITE_SUPABASE_PUBLISHABLE_KEY"
+          echo "Supabase URL configured: $VITE_SUPABASE_URL"
+          echo "Supabase publishable key configured: yes"
 
       - name: Build static GitHub Pages output
         run: npx vite build -c vite.config.pages.ts
