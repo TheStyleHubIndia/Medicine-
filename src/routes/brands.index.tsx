@@ -122,8 +122,13 @@ function BrandsDirectory() {
                   {b.manufacturers?.name ?? "Company not linked"}
                 </p>
                 <p className="mt-1 text-sm">
-                  {b.medicines?.display_name ?? b.active_ingredient ?? b.composition ?? "Generic not linked yet"}
+                  {b.medicines?.display_name ?? b.active_ingredient ?? b.composition ?? "Generic mapping pending verification"}
                 </p>
+                {!b.medicines && !b.active_ingredient && !b.composition && (
+                  <p className="mt-2 text-xs text-amber-600">
+                    Source found, generic composition still needs verification.
+                  </p>
+                )}
                 {b.strength && <p className="mt-1 text-xs text-muted-foreground">{b.strength}</p>}
               </Link>
             ))}
