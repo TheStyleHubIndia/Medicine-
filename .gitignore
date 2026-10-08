@@ -6,3 +6,4 @@ coverage/
 *.log
 .env*
 !.env.example
+\n# Generated runtime/build artifacts\n.output/\n.wrangler/\n
