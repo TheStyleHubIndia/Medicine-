@@ -18,6 +18,7 @@ import {
   ShieldCheck,
   Factory,
   Stethoscope,
+  Tags,
   type LucideIcon,
 } from "lucide-react";
 
@@ -29,6 +30,7 @@ export const MAIN_NAV: NavItem[] = [
   { to: "/conditions", label: "Problem Search", icon: Stethoscope },
   { to: "/classes", label: "Classes", icon: Dna },
   { to: "/manufacturers", label: "Pharma Companies", icon: Factory },
+  { to: "/brands", label: "Brand Drug List", icon: Tags },
   { to: "/terms", label: "Medical Terms", icon: BookOpen },
   { to: "/memory", label: "Drug Memory", icon: Brain },
   { to: "/learn", label: "Learning Path", icon: GraduationCap },
