@@ -1,19 +1,29 @@
 {
-  "source": "Supabase",
-  "project": "fgsmqccesuxxhitosztc",
-  "table": "public.medicines",
-  "total_records": 500,
   "last_synced": "2026-10-09",
-  "verification_note": "Newly added generic records are marked under_review until clinically source-verified.",
-  "frontend": "GitHub Pages reads medicine data from Supabase; database is the runtime source of truth.",
-  "enrichment": {
-    "uses": 500,
-    "merits": 500,
-    "demerits": 500,
-    "mechanism": 373,
-    "dosages": 0,
-    "safety_alerts": 0,
-    "drug_interactions": 7
+  "supabase": {
+    "medicines": 500,
+    "manufacturers": 62,
+    "brands": 214
   },
-  "branding_note": "Production build contains no Lovable branding; stale generated artifacts are cleaned before Pages builds."
+  "added_manufacturers": [
+    "Blue Cross Laboratories",
+    "Indoco Remedies Ltd",
+    "DWD Pharmaceuticals Ltd",
+    "Lincoln Pharmaceuticals Ltd",
+    "Trigat Life Sciences Pvt Ltd",
+    "Macwell Pharmaceuticals",
+    "UHL / Unimarck Healthcare Ltd",
+    "Octane Biotech Pvt Ltd",
+    "NuLife Pharmaceuticals",
+    "Lifecom Pharmaceuticals Pvt Ltd",
+    "H & H Pharmaceutical Pvt Ltd",
+    "Nexkem Pharmaceuticals Pvt Ltd",
+    "OPI Group Global Pvt Ltd",
+    "Meghmani Organics Ltd",
+    "Bennat",
+    "Leolife",
+    "Arreen",
+    "Sealero Pharma Pvt Ltd"
+  ],
+  "note": "Verified brand names were added with source labels. Ambiguous manufacturer names remain under_review until exact entity/product catalog is verified."
 }
