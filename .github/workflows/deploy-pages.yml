@@ -29,6 +29,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Clean generated build artifacts
+        run: rm -rf .output .wrangler dist
+
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
