@@ -5,5 +5,15 @@
   "total_records": 500,
   "last_synced": "2026-10-09",
   "verification_note": "Newly added generic records are marked under_review until clinically source-verified.",
-  "frontend": "GitHub Pages reads medicine data from Supabase; database is the runtime source of truth."
+  "frontend": "GitHub Pages reads medicine data from Supabase; database is the runtime source of truth.",
+  "enrichment": {
+    "uses": 500,
+    "merits": 500,
+    "demerits": 500,
+    "mechanism": 373,
+    "dosages": 0,
+    "safety_alerts": 0,
+    "drug_interactions": 7
+  },
+  "branding_note": "Production build contains no Lovable branding; stale generated artifacts are cleaned before Pages builds."
 }
