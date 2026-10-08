@@ -485,6 +485,19 @@ export const manufacturersQuery = () =>
     },
   });
 
+export const brandsDirectoryQuery = () =>
+  queryOptions({
+    queryKey: ["brands-directory"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("brands")
+        .select("id, brand_name, composition, active_ingredient, strength, dosage_form, verification_status, manufacturers(id, name), medicines(id, slug, display_name, generic_name)")
+        .order("brand_name");
+      if (error) throw error;
+      return data ?? [];
+    },
+  });
+
 export const manufacturerQuery = (id: string) =>
   queryOptions({
     queryKey: ["manufacturer", id],
