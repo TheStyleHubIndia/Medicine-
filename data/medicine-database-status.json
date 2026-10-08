@@ -1,0 +1,9 @@
+{
+  "source": "Supabase",
+  "project": "fgsmqccesuxxhitosztc",
+  "table": "public.medicines",
+  "total_records": 500,
+  "last_synced": "2026-10-09",
+  "verification_note": "Newly added generic records are marked under_review until clinically source-verified.",
+  "frontend": "GitHub Pages reads medicine data from Supabase; database is the runtime source of truth."
+}
