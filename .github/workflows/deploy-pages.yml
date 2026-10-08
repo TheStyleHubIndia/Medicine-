@@ -43,6 +43,15 @@ jobs:
           echo "Supabase URL configured: $VITE_SUPABASE_URL"
           echo "Supabase publishable key configured: yes"
 
+      - name: Verify production source branding
+        run: |
+          set -eu
+          if grep -RniE 'lovable(\.dev| ai)?|made with lovable' src public index.html metadata.json 2>/dev/null; then
+            echo "Forbidden Lovable branding found in production source."
+            exit 1
+          fi
+          echo "Production source branding check: PASS"
+      
       - name: Build static GitHub Pages output
         run: npx vite build -c vite.config.pages.ts
 
