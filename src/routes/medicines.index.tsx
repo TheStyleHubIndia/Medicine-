@@ -48,7 +48,7 @@ function MedicinesPage() {
       m.display_name.toLowerCase().includes(t) ||
       m.generic_name.toLowerCase().includes(t) ||
       (m.salt ?? "").toLowerCase().includes(t);
-    const matchesVerification = verification === "all" || m.verification_status === verification;
+    const matchesVerification = verification === "all" || (verification === "verified" ? m.verification_status === "verified" : m.verification_status === "pending_review" || m.verification_status === "under_review");
     return matches && (!category || m.category === category) && matchesVerification;
   });
 
