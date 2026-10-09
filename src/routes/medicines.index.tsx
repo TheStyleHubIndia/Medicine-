@@ -34,6 +34,7 @@ function MedicinesPage() {
   const { data, isLoading, isError } = useQuery(medicinesQuery());
   const [term, setTerm] = useState("");
   const [category, setCategory] = useState<string | null>(null);
+  const [verification, setVerification] = useState<"all" | "verified" | "under_review">("all");
 
   const categories = useMemo(
     () => [...new Set((data ?? []).map((m) => m.category).filter(Boolean))] as string[],
@@ -47,7 +48,8 @@ function MedicinesPage() {
       m.display_name.toLowerCase().includes(t) ||
       m.generic_name.toLowerCase().includes(t) ||
       (m.salt ?? "").toLowerCase().includes(t);
-    return matches && (!category || m.category === category);
+    const matchesVerification = verification === "all" || m.verification_status === verification;
+    return matches && (!category || m.category === category) && matchesVerification;
   });
 
   return (
@@ -112,6 +114,16 @@ function MedicinesPage() {
           </Button>
         ))}
       </div>
+
+      <section className="space-y-2" aria-label="Filter by verification status">
+        <p className="text-sm font-medium">Verification status</p>
+        <div className="flex flex-wrap gap-2">
+          <Button size="sm" variant={verification === "all" ? "default" : "outline"} onClick={() => setVerification("all")}>All records</Button>
+          <Button size="sm" variant={verification === "verified" ? "default" : "outline"} onClick={() => setVerification("verified")}>Verified only</Button>
+          <Button size="sm" variant={verification === "under_review" ? "default" : "outline"} onClick={() => setVerification("under_review")}>Pending review</Button>
+        </div>
+        <p className="text-xs text-muted-foreground">Verification means the record has been checked against a reliable source. Pending records are not medical advice and should not be treated as confirmed.</p>
+      </section>
 
       {isError ? (
         <p className="surface p-6 text-sm">
