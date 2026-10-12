@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "source": "Blue Cross Laboratories official product catalogue and April 2025 price list",
+  "sourceUrls": [
+    "https://www.bluecrosslabs.com/search/",
+    "https://www.bluecrosslabs.com/wp-content/uploads/2025/06/Pricelist-APR2025.pdf"
+  ],
+  "records": [
+    {
+      "brand": "EXTACEF-200 DT",
+      "manufacturer": "Blue Cross Laboratories",
+      "genericIngredients": ["cefixime"],
+      "composition": "Each dispersible uncoated tablet contains cefixime equivalent to anhydrous cefixime 200 mg",
+      "strength": "200 mg",
+      "dosageForm": "dispersible uncoated tablet",
+      "verificationStatus": "source_verified",
+      "sourceUrl": "https://www.bluecrosslabs.com/wp-content/uploads/2025/06/Pricelist-APR2025.pdf",
+      "sourceNote": "Listed in official Form V price list; product presentation is specific to EXTACEF-200 DT."
+    },
+    {
+      "brand": "BLUMOX-CA 625 Tablets",
+      "manufacturer": "Malik Lifesciences Pvt. Ltd. (as listed by Blue Cross)",
+      "genericIngredients": ["amoxicillin", "clavulanic acid"],
+      "composition": "Amoxicillin 500 mg + clavulanic acid 125 mg per film-coated tablet",
+      "strength": "625 mg total",
+      "dosageForm": "film-coated tablet",
+      "verificationStatus": "source_verified",
+      "sourceUrl": "https://www.bluecrosslabs.com/wp-content/uploads/2025/06/Pricelist-APR2025.pdf",
+      "sourceNote": "Do not reuse this composition for BLUMOX-CA dry syrup or injection."
+    },
+    {
+      "brand": "BLUMOX-CA Dry Syrup",
+      "manufacturer": "Malik Lifesciences Pvt. Ltd. (as listed by Blue Cross)",
+      "genericIngredients": ["amoxicillin", "clavulanic acid"],
+      "composition": "Each 5 mL of reconstituted suspension contains amoxicillin 200 mg + clavulanic acid 28.5 mg",
+      "strength": "200 mg + 28.5 mg per 5 mL",
+      "dosageForm": "dry syrup for oral suspension",
+      "verificationStatus": "source_verified",
+      "sourceUrl": "https://www.bluecrosslabs.com/wp-content/uploads/2025/06/Pricelist-APR2025.pdf",
+      "sourceNote": "Separate presentation; not interchangeable with tablet or injection records."
+    },
+    {
+      "brand": "BLUMOX-CA 1.2 G Injection",
+      "manufacturer": "Aqua Vitoe Labs (as listed by Blue Cross)",
+      "genericIngredients": ["amoxicillin", "clavulanic acid"],
+      "composition": "Amoxicillin 1000 mg + clavulanic acid 200 mg per vial",
+      "strength": "1 g + 200 mg",
+      "dosageForm": "injection combipack",
+      "verificationStatus": "source_verified",
+      "sourceUrl": "https://www.bluecrosslabs.com/wp-content/uploads/2025/06/Pricelist-APR2025.pdf",
+      "sourceNote": "Separate presentation; do not map to oral formulations."
+    },
+    {
+      "brand": "BLUGLIP Tablets",
+      "manufacturer": "Blue Cross Laboratories",
+      "genericIngredients": ["vildagliptin"],
+      "composition": "Vildagliptin 50 mg per uncoated tablet",
+      "strength": "50 mg",
+      "dosageForm": "uncoated tablet",
+      "verificationStatus": "source_verified",
+      "sourceUrl": "https://www.bluecrosslabs.com/wp-content/uploads/2024/10/BLUGLIP-Tablets.pdf",
+      "sourceNote": "BLUGLIP-M and BLUGLIP-M Forte are distinct combination products; do not reuse this single-ingredient composition."
+    }
+  ],
+  "important": "This is a source-backed import/review dataset committed to the repository. It is not proof that these rows have been inserted into live Supabase. Match each record to the exact brand row and verify schema/strength/form before importing; preserve any existing row with a conflicting formulation as pending_review."
+}
