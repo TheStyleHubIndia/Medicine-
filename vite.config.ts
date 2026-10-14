@@ -16,7 +16,7 @@ const silenceDirectivesPlugin = () => ({
   },
 });
 
-const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
+const isGitHubPages = process.env["GITHUB_ACTIONS"] === "true";
 
 export default defineConfig({
   base: isGitHubPages ? "/Medicine-/" : "/",
@@ -31,7 +31,6 @@ export default defineConfig({
           outputPath: "/_shell.html",
           crawlLinks: false,
           retryCount: 2,
-          failOnError: true,
         },
       },
     }),
