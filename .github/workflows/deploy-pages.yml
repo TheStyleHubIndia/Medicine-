@@ -33,7 +33,7 @@ jobs:
         run: rm -rf .output .wrangler dist
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
 
       - name: Verify Supabase build environment
         run: |
@@ -43,6 +43,39 @@ jobs:
           echo "Supabase URL configured: $VITE_SUPABASE_URL"
           echo "Supabase publishable key configured: yes"
 
+      - name: Smoke-test live Supabase medicine API
+        env:
+          SUPABASE_URL: ${{ env.VITE_SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ env.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          node --input-type=module <<'NODE'
+          const url = process.env.SUPABASE_URL;
+          const key = process.env.SUPABASE_PUBLISHABLE_KEY;
+          const columns = [
+            "id", "slug", "generic_name", "display_name", "salt",
+            "active_ingredient", "category", "description", "pronunciation_en",
+            "key_suffix", "verification_status", "indications", "dosage_forms", "routes"
+          ].join(",");
+          const endpoint = new URL("/rest/v1/medicines", url);
+          endpoint.searchParams.set("select", columns);
+          endpoint.searchParams.set("limit", "1");
+          const response = await fetch(endpoint, {
+            headers: { apikey: key, Accept: "application/json" },
+          });
+          if (!response.ok) {
+            const detail = (await response.text()).slice(0, 400);
+            throw new Error(`Supabase medicine API failed: HTTP ${response.status}: ${detail}`);
+          }
+          const rows = await response.json();
+          if (!Array.isArray(rows) || rows.length < 1) {
+            throw new Error("Supabase medicine API returned no sample records; refusing to deploy a blank-data build.");
+          }
+          console.log("Supabase medicine API smoke test: PASS (schema and public read verified).");
+          NODE
+
+      - name: TypeScript type check
+        run: npm run typecheck
+
       - name: Verify production source branding
         run: |
           set -eu
@@ -51,7 +84,7 @@ jobs:
             exit 1
           fi
           echo "Production source branding check: PASS"
-      
+
       - name: Build static GitHub Pages output
         run: npx vite build -c vite.config.pages.ts
 
