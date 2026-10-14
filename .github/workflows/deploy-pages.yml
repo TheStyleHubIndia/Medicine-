@@ -73,9 +73,6 @@ jobs:
           console.log("Supabase medicine API smoke test: PASS (schema and public read verified).");
           NODE
 
-      - name: TypeScript type check
-        run: npm run typecheck
-
       - name: Verify production source branding
         run: |
           set -eu
@@ -87,6 +84,9 @@ jobs:
 
       - name: Build static GitHub Pages output
         run: npx vite build -c vite.config.pages.ts
+
+      - name: TypeScript type check
+        run: npm run typecheck
 
       - name: Prepare GitHub Pages SPA output
         run: |
